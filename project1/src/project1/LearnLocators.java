@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class test1 {
+public class LearnLocators {
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -28,8 +28,8 @@ public class test1 {
 		String errorMessage = driver.findElement(By.cssSelector("p[class=\"error\"]")).getText();
 		System.out.println(errorMessage);
 		driver.findElement(By.linkText("Forgot your password?")).click();
-		driver.findElement(By.cssSelector("input[placeholder=\"Name\"]")).sendKeys("vivek");
-		driver.findElement(By.cssSelector("input[placeholder=\"Email\"]")).sendKeys("vivek@gmail.com");
+		driver.findElement(By.cssSelector("input[placeholder=\"Name\"]")).sendKeys("vivek pandey");
+		driver.findElement(By.cssSelector("input[placeholder=\"Email\"]")).sendKeys("vffivek@gmail.com");
 		driver.findElement(By.cssSelector("input[placeholder=\"Phone Number\"]")).sendKeys("701122189");
 		
 
