@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
 
 public class LearnLocators {
 
@@ -20,7 +21,8 @@ public class LearnLocators {
 		 */
 
 		driver.get("https://rahulshettyacademy.com/locatorspractice/");
-		driver.findElement(By.id("inputUsername")).sendKeys("vivek");
+		String name= "vivek";
+		driver.findElement(By.id("inputUsername")).sendKeys(name);
 		driver.findElement(By.name("inputPassword")).sendKeys("abcd");
 		driver.findElement(By.className("signInBtn")).click();
 		// String errorMessage =
@@ -38,18 +40,23 @@ public class LearnLocators {
 		Thread.sleep(1000);
 		driver.findElement(By.cssSelector(".reset-pwd-btn")).click();
 		Thread.sleep(1000);
-		System.out.println(driver.findElement(By.cssSelector(".infoMsg")).getText());
+		String passwordLine = driver.findElement(By.cssSelector(".infoMsg")).getText();
+		String password = passwordLine.split("'")[1];
+		System.out.println("password is " + " :" + password);
+
 		driver.findElement(By.className("go-to-login-btn")).click();
 		Thread.sleep(1000);
-		driver.findElement(By.cssSelector("input[placeholder*=User]")).sendKeys("vivek");
-		driver.findElement(By.cssSelector("input[placeholder*=Pass]")).sendKeys("rahulshettyacademy");
+		driver.findElement(By.cssSelector("input[placeholder*=User]")).sendKeys(name);
+		driver.findElement(By.cssSelector("input[placeholder*=Pass]")).sendKeys(password);
 		driver.findElement(By.id("chkboxOne")).click();
 		driver.findElement(By.id("chkboxTwo")).click();
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		Thread.sleep(1000);
-		System.out.println(driver.findElement(By.cssSelector("h2")).getText()
-				+" "+ driver.findElement(By.cssSelector("p")).getText());
-
+		System.out.println(driver.findElement(By.cssSelector("h2")).getText() + " "
+				+ driver.findElement(By.cssSelector("p")).getText());
+		Assert.assertEquals(driver.findElement(By.tagName("h2")).getText(), "Hello "+name+",");
+		Assert.assertEquals(driver.findElement(By.cssSelector("p")).getText(), "You are successfully logged in.");
+		driver.findElement(By.xpath("//button[text()='Log Out']")).click();
 	}
 
 }
