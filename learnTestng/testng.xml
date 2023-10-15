@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Admin panel">
+  <test name="user management">
+    <classes>
+      <class name="learn.day1">
+		  <methods>
+			  <include name="signIn"></include>
+		  </methods>
+      </class>
+      <class name="learn.day2"/>
+       <class name="learn.day3">
+		   <methods>
+
+			   <exclude name="web.*"></exclude>
+		   </methods>
+             </class>
+
+    </classes>
+  </test> <!-- Test -->
+  <test name="limt And capping">
+	  <classes>
+		 
+		  <class name="learn.day4">
+			  <methods>
+				  <exclude name="webLogin"></exclude>
+			  </methods>
+		  </class>
+			  
+	  </classes>
+	  
+  </test>
+</suite> <!-- Suite -->
